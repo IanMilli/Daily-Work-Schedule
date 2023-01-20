@@ -25,7 +25,7 @@ setInterval(
 
     }, 1000);
 
-/* next i wan t a function that will run as soon as the window loads to display visually whether the time slots are current (light green)
+/* next i wan t a function that will run as soon as the window loads to display visually whether the time rows are current (light green)
 past (red) or future(dark green)*/
 window.onload = displayCurrentTime();
 
@@ -37,28 +37,33 @@ function displayCurrentTime() {
 then create a variable that is equal to the current hour so we can compare it against the array to generate the correct display color*/
     for (i = 0; i <= timeSlot.length; i++) {
 /*first iterate along the whole length of the timeSlot array but have the for loop finish at its end*/
-/* write a if statement so that if i is less than the value of the currentTime then the variable timeDisplay will have a value of past */
+/* write a if statement so that if i is less than the value of the currentTime then the variablt timeColor will have a value of past */
         if (i < currentTimePeriod) {
-            let timeDisplay = "past";
+            let timeColor = "past";
         }
-/*write a else if statement so if i is equal only to the value of currentTimePeriod, the variable timeDisplay will have a value of present*/
+/*write a else if statement so if i is equal only to the value of currentTimePeriod, the variablt timeColor will have a value of present*/
         else if (i === currentTimePeriod) {
-            let timeDisplay = "present";
+            let timeColor = "present";
         }
-        /*write a else if statement so if i is greater than the value of currentTimePeriod, the variable timeDisplay will have a value of future*/
+        /*write a else if statement so if i is greater than the value of currentTimePeriod, the variable timeColor will have a value of future*/
         else if(i > currentTimePeriod) {
-            let TimeDisplay = "future";
+            let timeColor = "future";
         }
-
+/*Create a new `<div>` for each row and its  content  as the for loop runs*/
         let row = $("<div>");
-        row.attr("class", "row");
+/*Add a class of row to the div  */
+        row.addClass("row");
+/*append the class of row to the container element*/
         container.append(row);
+/*Create a new label for each row and equal it to its container as the for loop runs */
         let label = $("<label>");
-        label.attr("class", "col-2 col-sm-1 time-block hour");
+  /*Add a class to the label to define its size using bootstrap */      
+        label.addClass ("col-2 col-sm-1 time-block hour");
+
         label.text(time[i]);
         row.append(label);
         let textArea = $("<textarea>");
-        textArea.attr("class", "col-8 col-sm-10 description " + TimeDisplay);
+        textArea.attr("class", "col-8 col-sm-10 description " t timeColor);
         textArea.text(localStorage.getItem("btn" + i));
         row.append(textArea);
         let button = $("<button>");
