@@ -4,13 +4,14 @@
 let container = $(".container");
 let currentDayTime = $(".currentDayTime");
 let currentDayTimeText = $("<h2>");
-let currentTimePeriod = moment().format("hA");
+let currentTimePeriod = moment().hour();;
 let timeColor = "";
 /*create required arrays here */
 
-let timeSlot = ["07.00", "08.00", "09.00", "10.00", "11.00", "12.00", "13.00", "14.00", "15.00", "16.00", "17.00"]
+let timeSlot = [07, 08, 09, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,20,]
 
-
+console.log(currentTimePeriod);
+console.log(timeSlot);
 /*define todays date and time and print to the top of the page in h2 class 'currentDayTime' */
 /*currentDayTimeText.text(moment().format("dddd, MMMM Do YYYY, h:mm:ss a"));
 currentDayTime.append(currentDayTimeText);
@@ -39,16 +40,16 @@ then create a variable that is equal to the current hour so we can compare it ag
 /*first iterate along the whole length of the timeSlot array (-1 so it doesn't print unnecessary row)but have the for loop finish at its end*/
 /* write a if statement so that if i is less than the value of the currentTime then the variable timeColor will have a value of past 
 (define the variable timeColor as equal to an empty string)*/
-        if (i < currentTimePeriod) {
-            timeColor = "past";
+        if (timeSlot[i] < currentTimePeriod) {
+            timeColor = ".past";
         }
 /*write a else if statement so if i is equal only to the value of currentTimePeriod, the variable timeColor will have a value of present*/
         else if (i === currentTimePeriod) {
-            timeColor = "present";
+            timeColor = ".present";
         }
         /*write a else if statement so if i is greater than the value of currentTimePeriod, the variable timeColor will have a value of future*/
         else if(i > currentTimePeriod) {
-            timeColor = "future";
+            timeColor = ".future";
         }
 /*Create a new `<div>` for each row and its  content  as the for loop runs*/
         let row = $("<div>");
@@ -80,8 +81,8 @@ then create a variable that is equal to the current hour so we can compare it ag
 
 
         let button = $("<button>");
-/* attach classes to the variable button to give size and css styling*/
-        button.addClass("class", "col-2 col-sm-1 saveBtn fas fa-save");
+/* attach classes to the variable button to give size and css styling - use .attr rather than .addClass as some of the classes are viewed by jquery as attributes*/
+        button.attr("class", "col-2 col-sm-1 saveBtn fas fa-save");
 /* add an id to the button variable of btn plus the current value of i as the loop operates (id is an attribute so use .attr to add it) */
         button.attr("id", "btn" + i);
  /*append the value of the variable to row */       
@@ -90,3 +91,5 @@ then create a variable that is equal to the current hour so we can compare it ag
 }
 /*the above for loop will create the day planner by forming a label with a time from the array in it , a text area for user input and a button
 to allow the user to input there entry into local storage*/
+
+
