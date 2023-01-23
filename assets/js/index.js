@@ -4,7 +4,7 @@
 let container = $(".container");
 let currentDayTime = $(".currentDayTime");
 let currentDayTimeText = $("<h2>");
-let currentTimePeriod = moment().hour();;
+let currentTimePeriod = moment().hour();
 let timeColor = "";
 /*create required arrays here */
 /*edited original array of timeSlot = [7,8,9,10,11,12,13,14,15,16,17,18,19,20]
@@ -85,7 +85,7 @@ setInterval(
 
         }, 1000);
 
-/* next i wan t a function that will run as soon as the window loads to display visually whether the time rows are current (light green)
+/* next i want a function that will run as soon as the window loads to display visually whether the time rows are current (light green)
 past (red) or future(dark green)*/
 window.onload = displayCurrentTime();
 
@@ -94,7 +94,10 @@ window.onload = displayCurrentTime();
 function displayCurrentTime() {
 
         /*use a for loop to iterate through an array we will create below the global variable section.
-        then create a variable that is equal to the current hour so we can compare it against the array to generate the correct display color*/
+        then create a variable that is equal to the current hour so we can compare it against the array to generate the correct display order
+       
+        The following for loop will create the day planner by forming a label with a time from the array in it , a text area for user input and a button
+        to allow the user to input there entry into local storage*/
         for (i = 0; i <= timeSlot.length - 1; i++) {
                 /*first iterate along the whole length of the timeSlot array (-1 so it doesn't print unnecessary row)but have the for loop finish at its end*/
 
@@ -137,10 +140,6 @@ function displayCurrentTime() {
                 row.append(button);
         };
 
-        /*the above for loop will create the day planner by forming a label with a time from the array in it , a text area for user input and a button
-        to allow the user to input there entry into local storage*/
-
-
         $(".saveBtn").on("click", function () {
                 let Input = $(textArea).siblings(".description").val();
                 console.log(description);
@@ -148,4 +147,23 @@ function displayCurrentTime() {
                 console.log(time);
                 localStorage.setItem(time, description);
         });
+
+/*in order to visually see the colors change during the day to display the most appropriate time block to use
+the text areas need to be connected to the array and to the css classes past, present future  using an if statement*/
+
+let timeId = $this.attr("value");
+if (currentTimePeriod < timeId) {
+        $(this).addClass ("past");
+        $(this).removeClass ("future");
+        $(this).removeClass ("present");
 }
+if (currentTimePeriod === timeId) {
+        $(this).addClass ("present");
+        $(this).removeClass ("future");
+        $(this).removeClass ("past");
+}
+if (currentTimePeriod > timeId) {
+        $(this).addClass ("future");
+        $(this).removeClass ("past");
+        $(this).removeClass ("present");
+}}
