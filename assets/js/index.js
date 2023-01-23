@@ -11,57 +11,63 @@ let timeColor = "";
 so that i can add information to attach to the row label and to help with retrieval of information from and to local storage */
 let timeSlot = [{
         rowName: "7.00 am",
-        value:7,
-        input:""},{
+        value: 7,
+        input: ""
+}, {
         rowName: "8.00 am",
-        value:8,
-        input:"",},{
+        value: 8,
+        input: "",
+}, {
         rowName: "9.00 am",
-        value:9,
-        input:""},{
+        value: 9,
+        input: ""
+}, {
         rowName: "10.00 am",
-        value:10,
-        input:""},{
+        value: 10,
+        input: ""
+}, {
         rowName: "11.00 am",
-        value:11,
-        input:""},{
+        value: 11,
+        input: ""
+}, {
         rowName: "12.00 am",
-        value:12,
-        input:""},{
+        value: 12,
+        input: ""
+}, {
         rowName: "13.00 am",
-        value:13,
-        input:""},{
+        value: 13,
+        input: ""
+}, {
         rowName: "14.00 am",
-        value:14,
-        input:""},{
+        value: 14,
+        input: ""
+}, {
         rowName: "15.00 am",
-        value:15,
-        input:""},{
+        value: 15,
+        input: ""
+}, {
         rowName: "16.00 am",
-        value:16,
-        input:""},{
+        value: 16,
+        input: ""
+}, {
         rowName: "17.00 am",
-        value:17,
-        input:""},{
+        value: 17,
+        input: ""
+}, {
         rowName: "18.00 am",
-        value:18,
-        input:""},{
+        value: 18,
+        input: ""
+}, {
         rowName: "19.00 am",
-        value:19,
-        input:""},{
+        value: 19,
+        input: ""
+}, {
         rowName: "20.00 am",
-        value:20,
-        input:""},
+        value: 20,
+        input: ""
+},
 ]
-        
-        
-        
-        
-        
-        
-        
-        
-        8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,]
+
 
 console.log(currentTimePeriod);
 console.log(timeSlot);
@@ -117,36 +123,11 @@ function displayCurrentTime() {
                 /*attach the text value from local storage using a new function named getItem that works with the class of btn and the value of i at that point in the for loop */
                 textArea.text(localStorage.getItem("btn" + i));
                 /*append the text area variable to the row variable value*/
-                /* write a if statement so that if i is less than the value of the currentTime then the variable timeColor will have a value of past 
-       (define the variable timeColor as equal to an empty string)*/
-                if (timeSlot[i] < currentTimePeriod) {
-                        textArea.addClass("past");
-                        textArea.removeClass("present");
-                        textArea.removeClass("future");
-                }
-                /*write a else if statement so if i is equal only to the value of currentTimePeriod, the variable timeColor will have a value of present*/
-                else if (i === currentTimePeriod) {
-                        textArea.addClass("present");
-                        textArea.removeClass("past");
-                        textArea.removeClass("future");
-                }
-                /*write a else if statement so if i is greater than the value of currentTimePeriod, the variable timeColor will have a value of future*/
-                else if (i > currentTimePeriod) {
-                        textArea.addClass("future");
-                        textArea.removeClass("present");
-                        textArea.removeClass("past");
-                }
-
-
 
                 row.append(textArea);
+
+
                 /* create a variable button and equal it to a button div to create a button at the end of each row */
-
-
-
-
-
-
                 let button = $("<button>");
                 /* attach classes to the variable button to give size and css styling - use .attr rather than .addClass as some of the classes are viewed by jquery as attributes*/
                 button.attr("class", "col-2 col-sm-1 saveBtn fas fa-save");
@@ -160,20 +141,11 @@ function displayCurrentTime() {
         to allow the user to input there entry into local storage*/
 
 
-$(".saveBtn").on("click", function () {
-        let Input = $(textArea).siblings(".description").val();
-        console.log(description);
-        let time = $(textArea).parent().attr("id");
-        console.log(time);
-        localStorage.setItem(time, description);
-});
+        $(".saveBtn").on("click", function () {
+                let Input = $(textArea).siblings(".description").val();
+                console.log(description);
+                let time = $(textArea).parent().attr("id");
+                console.log(time);
+                localStorage.setItem(time, description);
+        });
 }
-$("9 .description").val(localStorage.getItem(9));
-$("#10 .description").val(localStorage.getItem(10));
-$("#11 .description").val(localStorage.getItem(11));
-$("#12 .description").val(localStorage.getItem(12));
-$("#13 .description").val(localStorage.getItem(13));
-$("#14 .description").val(localStorage.getItem(14));
-$("#15 .description").val(localStorage.getItem(15));
-$("#16 .description").val(localStorage.getItem(16));
-$("#17 .description").val(localStorage.getItem(17));
