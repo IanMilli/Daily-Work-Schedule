@@ -1,69 +1,69 @@
 /*write the js to make a day work scheduler operate dynamically with css and html*/
 
-/*define global variables in this section*/
+/*define global variables in(textArea) section*/
 let container = $(".container");
 let currentDayTime = $(".currentDayTime");
 let currentDayTimeText = $("<h2>");
 let currentTimePeriod = moment().hour();
-let timeColor = "";
+
 /*create required arrays here */
 /*edited original array of timeSlot = [7,8,9,10,11,12,13,14,15,16,17,18,19,20]
 so that i can add information to attach to the row label and to help with retrieval of information from and to local storage */
 let timeSlot = [{
         rowName: "7.00 am",
-        value: 7,
+        slotValue: 7,
         input: ""
 }, {
         rowName: "8.00 am",
-        value: 8,
+        slotValue: 8,
         input: "",
 }, {
         rowName: "9.00 am",
-        value: 9,
+        slotValue: 9,
         input: ""
 }, {
         rowName: "10.00 am",
-        value: 10,
+        slotValue: 10,
         input: ""
 }, {
         rowName: "11.00 am",
-        value: 11,
+        slotValue: 11,
         input: ""
 }, {
         rowName: "12.00 am",
-        value: 12,
+        slotValue: 12,
         input: ""
 }, {
         rowName: "13.00 am",
-        value: 13,
+        slotValue: 13,
         input: ""
 }, {
         rowName: "14.00 am",
-        value: 14,
+        slotValue: 14,
         input: ""
 }, {
         rowName: "15.00 am",
-        value: 15,
+        slotValue: 15,
         input: ""
 }, {
         rowName: "16.00 am",
-        value: 16,
+        slotValue: 16,
         input: ""
 }, {
         rowName: "17.00 am",
-        value: 17,
+        slotValue: 17,
         input: ""
 }, {
         rowName: "18.00 am",
-        value: 18,
+        slotValue: 18,
         input: ""
 }, {
         rowName: "19.00 am",
-        value: 19,
+        slotValue: 19,
         input: ""
 }, {
         rowName: "20.00 am",
-        value: 20,
+        slotValue: 20,
         input: ""
 },
 ]
@@ -107,25 +107,27 @@ function displayCurrentTime() {
                 row.addClass("row");
                 /*append the class of row to the container variable*/
                 container.append(row);
-              
-              
+
+
                 /*Create a new label for each row and equal it to its container as the for loop runs */
                 let label = $("<label>");
                 /*Add a class to the label to define its size using bootstrap */
                 label.addClass("col-2 col-sm-1 time-block hour");
-                /* attach the  text value the mini array row Name to the label dependant on value of the timeSlot array in comparison to the value of i*/
+                /* attach the  text slotValue the mini array row Name to the label dependant on slotValue of the timeSlot array in comparison to the slotValue of i*/
                 label.text(timeSlot[i].rowName);
-                /* append the value of the variable label to each variable row*/
+                /* append the slotValue of the variable label to each variable row*/
                 row.append(label);
                 /*Create a new `<textarea>`  and its  content  as the for loop runs*/
 
 
                 let textArea = $("<textarea>");
                 /*add a set of classes to text area giving size and connect with css identifier*/
-                textArea.addClass("col-8 col-sm-10 description" + timeColor);
-                /*attach the text value from local storage using a new function named getItem that works with the class of btn and the value of i at that point in the for loop */
+                textArea.addClass("col-8 col-sm-10 description");
+                /*attach the text slotValue from local storage using a new function named getItem that works with the class of btn and the slotValue of i at that point in the for loop */
+                textArea.attr("id,timeValue")
+
                 textArea.text(localStorage.getItem("btn" + i));
-                /*append the text area variable to the row variable value*/
+                /*append the text area variable to the row variable slotValue*/
 
                 row.append(textArea);
 
@@ -134,9 +136,9 @@ function displayCurrentTime() {
                 let button = $("<button>");
                 /* attach classes to the variable button to give size and css styling - use .attr rather than .addClass as some of the classes are viewed by jquery as attributes*/
                 button.attr("class", "col-2 col-sm-1 saveBtn fas fa-save");
-                /* add an id to the button variable of btn plus the current value of i as the loop operates (id is an attribute so use .attr to add it) */
+                /* add an id to the button variable of btn plus the current slotValue of i as the loop operates (id is an attribute so use .attr to add it) */
                 button.attr("id", "btn" + i);
-                /*append the value of the variable to row */
+                /*append the slotValue of the variable to row */
                 row.append(button);
         };
 
@@ -147,23 +149,30 @@ function displayCurrentTime() {
                 console.log(time);
                 localStorage.setItem(time, description);
         });
-
+}
 /*in order to visually see the colors change during the day to display the most appropriate time block to use
-the text areas need to be connected to the array and to the css classes past, present future  using an if statement*/
+the text areas need to be connected to the array and to the css classes past, present future  using an if statement within a function*/
 
-let timeId = $this.attr("value");
-if (currentTimePeriod < timeId) {
-        $(this).addClass ("past");
-        $(this).removeClass ("future");
-        $(this).removeClass ("present");
-}
-if (currentTimePeriod === timeId) {
-        $(this).addClass ("present");
-        $(this).removeClass ("future");
-        $(this).removeClass ("past");
-}
-if (currentTimePeriod > timeId) {
-        $(this).addClass ("future");
-        $(this).removeClass ("past");
-        $(this).removeClass ("present");
-}}
+$(".timeSlot").each(function (i) {
+        /*select variable currentTime period already defined in global variables */
+        currentTimePeriod;
+        /*create the variable timeID and make it equal to slotValue mini array in the timeSlot array */
+        let timeID = $(this).attr("slotValue");
+
+        if (currentTimePeriod < timeID) {
+                $(".textArea").addClass("past");
+                $(".textArea").removeClass("future present");
+                
+        }
+        if (currentTimePeriod === timeID) {
+                $(".textArea").addClass("present");
+                $(".textArea").removeClass("future past");
+                
+        }
+        if (currentTimePeriod > timeID) {
+                $(".textArea").addClass("future");
+                $(".textArea").removeClass("past present");
+                
+        }
+i++
+})
