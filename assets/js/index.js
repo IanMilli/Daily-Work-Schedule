@@ -69,8 +69,8 @@ let timeSlot = [{
 ]
 
 
-console.log(currentTimePeriod);
-console.log(timeSlot);
+console.log("currentTimePeriod = ", currentTimePeriod);
+console.log("timeSlot = ", timeSlot);
 /*define todays date and time and print to the top of the page in h2 class 'currentDayTime' */
 /*currentDayTimeText.text(moment().format("dddd, MMMM Do YYYY, h:mm:ss a"));
 currentDayTime.append(currentDayTimeText);
@@ -122,57 +122,50 @@ function displayCurrentTime() {
 
                 let textArea = $("<textarea>");
                 /*add a set of classes to text area giving size and connect with css identifier*/
-                textArea.addClass("col-8 col-sm-10 description");
+                textArea.addClass("col-8 col-sm-10 description ");
                 /*attach the text slotValue from local storage using a new function named getItem that works with the class of btn and the slotValue of i at that point in the for loop */
-                textArea.attr("id,timeValue")
+                let timeValue = timeSlot[i].slotValue;
 
+                textArea.attr("slotValue", timeValue)
+console.log("timeValue =",timeValue);
                 textArea.text(localStorage.getItem("btn" + i));
                 /*append the text area variable to the row variable slotValue*/
+        
+                
+                
+                if (currentTimePeriod < timeValue) {
+                        textArea.addClass("past");
+                       
 
-                row.append(textArea);
+                }
+                if (currentTimePeriod == timeValue) {
+                        textArea.addClass("present");
+                       
+
+                }
+                if (currentTimePeriod > timeValue) {
+                        textArea.addClass("future");
+                        
+
+                        row.append(textArea);
 
 
-                /* create a variable button and equal it to a button div to create a button at the end of each row */
-                let button = $("<button>");
-                /* attach classes to the variable button to give size and css styling - use .attr rather than .addClass as some of the classes are viewed by jquery as attributes*/
-                button.attr("class", "col-2 col-sm-1 saveBtn fas fa-save");
-                /* add an id to the button variable of btn plus the current slotValue of i as the loop operates (id is an attribute so use .attr to add it) */
-                button.attr("id", "btn" + i);
-                /*append the slotValue of the variable to row */
-                row.append(button);
-        };
+                        /* create a variable button and equal it to a button div to create a button at the end of each row */
+                        let button = $("<button>");
+                        /* attach classes to the variable button to give size and css styling - use .attr rather than .addClass as some of the classes are viewed by jquery as attributes*/
+                        button.attr("class", "col-2 col-sm-1 saveBtn fas fa-save");
+                        /* add an id to the button variable of btn plus the current slotValue of i as the loop operates (id is an attribute so use .attr to add it) */
+                        button.attr("id", "btn" + i);
+                        /*append the slotValue of the variable to row */
+                        row.append(button);
+                };
 
-        $(".saveBtn").on("click", function () {
-                let Input = $(textArea).siblings(".description").val();
-                console.log(description);
-                let time = $(textArea).parent().attr("id");
-                console.log(time);
-                localStorage.setItem(time, description);
-        });
+                $(".saveBtn").on("click", function () {
+                        let Input = $(textArea).siblings(".description").val();
+                        console.log(description);
+                        let time = $(textArea).parent().attr("id");
+                        console.log(time);
+                        localStorage.setItem(time, description);
+                });
+        }
 }
-/*in order to visually see the colors change during the day to display the most appropriate time block to use
-the text areas need to be connected to the array and to the css classes past, present future  using an if statement within a function*/
-
-$(".timeSlot").each(function (i) {
-        /*select variable currentTime period already defined in global variables */
-        currentTimePeriod;
-        /*create the variable timeID and make it equal to slotValue mini array in the timeSlot array */
-        let timeID = $(this).attr("slotValue");
-
-        if (currentTimePeriod < timeID) {
-                $(".textArea").addClass("past");
-                $(".textArea").removeClass("future present");
-                
-        }
-        if (currentTimePeriod === timeID) {
-                $(".textArea").addClass("present");
-                $(".textArea").removeClass("future past");
-                
-        }
-        if (currentTimePeriod > timeID) {
-                $(".textArea").addClass("future");
-                $(".textArea").removeClass("past present");
-                
-        }
-i++
-})
