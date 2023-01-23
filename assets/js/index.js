@@ -104,14 +104,14 @@ function displayCurrentTime() {
                 row.addClass("row");
                 /*append the class of row to the container variable*/
                 container.append(row);
+              
+              
                 /*Create a new label for each row and equal it to its container as the for loop runs */
-
-
                 let label = $("<label>");
                 /*Add a class to the label to define its size using bootstrap */
                 label.addClass("col-2 col-sm-1 time-block hour");
-                /* attach the  text value of timeSlot (i) to the label*/
-                label.text(timeSlot[i]);
+                /* attach the  text value the mini array row Name to the label dependant on value of the timeSlot array in comparison to the value of i*/
+                label.text(timeSlot[i].rowName);
                 /* append the value of the variable label to each variable row*/
                 row.append(label);
                 /*Create a new `<textarea>`  and its  content  as the for loop runs*/
