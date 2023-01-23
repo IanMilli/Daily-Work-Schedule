@@ -7,8 +7,61 @@ let currentDayTimeText = $("<h2>");
 let currentTimePeriod = moment().hour();;
 let timeColor = "";
 /*create required arrays here */
-
-let timeSlot = [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,]
+/*edited original array of timeSlot = [7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+so that i can add information to attach to the row label and to help with retrieval of information from and to local storage */
+let timeSlot = [{
+        rowName: "7.00 am",
+        value:7,
+        input:""},{
+        rowName: "8.00 am",
+        value:8,
+        input:"",},{
+        rowName: "9.00 am",
+        value:9,
+        input:""},{
+        rowName: "10.00 am",
+        value:10,
+        input:""},{
+        rowName: "11.00 am",
+        value:11,
+        input:""},{
+        rowName: "12.00 am",
+        value:12,
+        input:""},{
+        rowName: "13.00 am",
+        value:13,
+        input:""},{
+        rowName: "14.00 am",
+        value:14,
+        input:""},{
+        rowName: "15.00 am",
+        value:15,
+        input:""},{
+        rowName: "16.00 am",
+        value:16,
+        input:""},{
+        rowName: "17.00 am",
+        value:17,
+        input:""},{
+        rowName: "18.00 am",
+        value:18,
+        input:""},{
+        rowName: "19.00 am",
+        value:19,
+        input:""},{
+        rowName: "20.00 am",
+        value:20,
+        input:""},
+]
+        
+        
+        
+        
+        
+        
+        
+        
+        8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,]
 
 console.log(currentTimePeriod);
 console.log(timeSlot);
