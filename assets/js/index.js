@@ -126,55 +126,56 @@ function displayCurrentTime() {
                 /*attach the text slotValue from local storage using a new function named getItem that works with the class of btn and the slotValue of i at that point in the for loop */
                 let timeValue = timeSlot[i].slotValue;
 
-                textArea.attr("slotValue", timeValue)
-console.log("timeValue =",timeValue);
+                textArea.attr("slotValue", timeValue, "value")
+
+                textArea.attr("id", "scheduleInput")
+                console.log("timeValue =", timeValue);
                 textArea.text(localStorage.getItem("btn" + i));
                 /*append the text area variable to the row variable slotValue*/
-        
-                
-                
-                if (currentTimePeriod < timeValue) {
+
+
+
+                if (currentTimePeriod > timeValue) {
                         textArea.addClass("past");
-                       
+
 
                 }
                 if (currentTimePeriod == timeValue) {
                         textArea.addClass("present");
-                       
+
 
                 }
-                if (currentTimePeriod > timeValue) {
+                if (currentTimePeriod < timeValue) {
                         textArea.addClass("future");
-                        
-
-                        row.append(textArea);
+                }
 
 
-                        /* create a variable button and equal it to a button div to create a button at the end of each row */
-                        let button = $("<button>");
-                        /* attach classes to the variable button to give size and css styling - use .attr rather than .addClass as some of the classes are viewed by jquery as attributes*/
-                        button.attr("class", "col-2 col-sm-1 saveBtn fas fa-save");
-                        /* add an id to the button variable of btn plus the current slotValue of i as the loop operates (id is an attribute so use .attr to add it) */
-                        button.attr("id", "btn" + i);
-                        /*append the slotValue of the variable to row */
-                        button.text("Save")
-                        row.append(button);
-                };
-/*create an event listener for the created buttons that puts data in local storage that persists through page reload */
-                $(".saveBtn").on("click", function () {
-                        let Input = $(this).siblings("textarea").val();
-                        console.log(Input);
-                        let timeInput = $(this).parent().attr("value");
-                        console.log(timeInput);
-                        localStorage.setItem(timeInput, Input);
-                });
-        }
+                row.append(textArea);
+
+
+                /* create a variable button and equal it to a button div to create a button at the end of each row */
+                let button = $("<button>");
+                /* attach classes to the variable button to give size and css styling - use .attr rather than .addClass as some of the classes are viewed by jquery as attributes*/
+                button.attr("class", "col-2 col-sm-1 saveBtn fas fa-save");
+                /* add an id to the button variable of btn plus the current slotValue of i as the loop operates (id is an attribute so use .attr to add it) */
+                button.attr("id", "btn" + i);
+                /*append the slotValue of the variable to row */
+                button.text("Save")
+                row.append(button);
+        };
 }
 
 
+function render() {
+        if (localStorage.getItem('Saved events') === null) {
 
-/*to pull the data from local storage*/
-for (let j = 0; j < timeSlot.length; j++) {
-        $(`#${i}`).val(localStorage.getItem(i));
-        
+        } else {
+                savedEvents = localStorage.getItem('Saved events').split(',');
+        }
+
+        //Aoops through each textarea and assigns its value as the corresponding array item
+        for (var i = 0; i < savedEvents.length; i++) {
+                var textContent = $('#hour-' + (9 + i)).find("textarea");
+                textContent.val(savedEvents[i]);
+        }
 }
