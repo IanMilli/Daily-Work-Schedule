@@ -157,15 +157,24 @@ console.log("timeValue =",timeValue);
                         /* add an id to the button variable of btn plus the current slotValue of i as the loop operates (id is an attribute so use .attr to add it) */
                         button.attr("id", "btn" + i);
                         /*append the slotValue of the variable to row */
+                        button.text("Save")
                         row.append(button);
                 };
-
+/*create an event listener for the created buttons that puts data in local storage that persists through page reload */
                 $(".saveBtn").on("click", function () {
-                        let Input = $(textArea).siblings(".description").val();
-                        console.log(description);
-                        let time = $(textArea).parent().attr("id");
-                        console.log(time);
-                        localStorage.setItem(time, description);
+                        let Input = $(this).siblings("textarea").val();
+                        console.log(Input);
+                        let timeInput = $(this).parent().attr("value");
+                        console.log(timeInput);
+                        localStorage.setItem(timeInput, Input);
                 });
         }
+}
+
+
+
+/*to pull the data from local storage*/
+for (let j = 0; j < timeSlot.length; j++) {
+        $(`#${i}`).val(localStorage.getItem(i));
+        
 }
