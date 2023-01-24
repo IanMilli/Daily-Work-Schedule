@@ -28,7 +28,7 @@ To use the planner the user must access the [deployed application](https://ianmi
 They then can type in their tasks in the text areas lbeled with the corresponding time slot.
 If they wish to save the task they may do so by clicking the save button.
 This will keep the information they have entered even if the page is refreshed.
-Should they complete the task and wish to clear the data they have entered the user can click the clear button and then confirm if they wish their data removed or not. If they click yes it will be.
+Should they complete the task and wish to clear the data they have entered the user can click the clear button and  their data removed.
 
 
 ## Screenshots
