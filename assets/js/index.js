@@ -10,59 +10,59 @@ let currentTimePeriod = moment().hour();
 /*edited original array of timeSlot = [7,8,9,10,11,12,13,14,15,16,17,18,19,20]
 so that i can add information to attach to the row label and to help with retrieval of information from and to local storage */
 let timeSlot = [{
-        rowName: "7.00 am",
+        rowName: "7.00 ",
         slotValue: 7,
         input: ""
 }, {
-        rowName: "8.00 am",
+        rowName: "8.00 ",
         slotValue: 8,
         input: "",
 }, {
-        rowName: "9.00 am",
+        rowName: "9.00 ",
         slotValue: 9,
         input: ""
 }, {
-        rowName: "10.00 am",
+        rowName: "10.00 ",
         slotValue: 10,
         input: ""
 }, {
-        rowName: "11.00 am",
+        rowName: "11.00 ",
         slotValue: 11,
         input: ""
 }, {
-        rowName: "12.00 am",
+        rowName: "12.00",
         slotValue: 12,
         input: ""
 }, {
-        rowName: "13.00 am",
+        rowName: "13.00 ",
         slotValue: 13,
         input: ""
 }, {
-        rowName: "14.00 am",
+        rowName: "14.00 ",
         slotValue: 14,
         input: ""
 }, {
-        rowName: "15.00 am",
+        rowName: "15.00 ",
         slotValue: 15,
         input: ""
 }, {
-        rowName: "16.00 am",
+        rowName: "16.00 ",
         slotValue: 16,
         input: ""
 }, {
-        rowName: "17.00 am",
+        rowName: "17.00 ",
         slotValue: 17,
         input: ""
 }, {
-        rowName: "18.00 am",
+        rowName: "18.00 ",
         slotValue: 18,
         input: ""
 }, {
-        rowName: "19.00 am",
+        rowName: "19.00 ",
         slotValue: 19,
         input: ""
 }, {
-        rowName: "20.00 am",
+        rowName: "20.00 ",
         slotValue: 20,
         input: ""
 },
@@ -112,7 +112,7 @@ function displayCurrentTime() {
                 /*Create a new label for each row and equal it to its container as the for loop runs */
                 let label = $("<label>");
                 /*Add a class to the label to define its size using bootstrap */
-                label.addClass("col-2 col-sm-1 time-block hour text-center bg-warning");
+                label.addClass("col-2 col-sm-1 time-block hour text-center bg-primary text-white");
                 /* attach the  text slotValue the mini array row Name to the label dependant on slotValue of the timeSlot array in comparison to the slotValue of i*/
                 label.text(timeSlot[i].rowName);
                 /* append the slotValue of the variable label to each variable row*/
@@ -122,7 +122,7 @@ function displayCurrentTime() {
 
                 let textArea = $("<textarea>");
                 /*add a set of classes to text area giving size and connect with css identifier*/
-                textArea.addClass("col-6 col-sm-8 description ");
+                textArea.addClass("col-6 col-sm-8 description cssText");
                 /*attach the text slotValue from local storage using a new function named getItem that works with the class of btn and the slotValue of i at that point in the for loop */
                 let timeValue = timeSlot[i].slotValue;
 
