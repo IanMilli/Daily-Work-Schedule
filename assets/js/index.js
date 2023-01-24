@@ -179,3 +179,17 @@ function render() {
                 textContent.val(savedEvents[i]);
         }
 }
+/* when the save button is clicked run a function for each button that collects the data into local storage*/
+$('.saveBtn').each(function () {
+        $(this).on("click", function () {
+                /* Alert the user the task has been saved*/
+                $('#saveEntryModal').modal('show');
+                /*define textId to grab the id of textarea div*/
+                let textId = $(this).siblings("div").attr("id");
+                /*grab the value of Text from the class textarea*/
+                let Text = $(this).siblings('textArea').val();
+
+                /*save data to localStorage (remember set item saves, get item retrieves and add JSON.stringify to turn details into a string*/
+                localStorage.setItem(textId, JSON.stringify(Text));
+        });
+});
