@@ -2,15 +2,16 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   line-height: 1;
-  margin: auto;
   background-color: rgb(152, 219, 241);
 }
 h2{
   color: silver;
+  font-size: 3vw;
+  font-family: cursive;
   display: inline-block;
   background-color: rgb(6, 34, 250);
   border-radius: 3vw; 
-  width:36vw;
+  width:65vw;
 }
 
 
@@ -55,13 +56,15 @@ textarea {
   border-right: 1px solid black;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
-  height: 4.5vw;
+  height: 1.5vw;
+ 
  
 }
 
 .row {
   white-space: pre-wrap;
   height: 5vw;
+  margin-left: 10vw;
 
 }
 
