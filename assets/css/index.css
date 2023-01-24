@@ -114,14 +114,5 @@ textarea {
   transition: all 0.3s ease-in-out;
 }
 
-.saveAll{
-border-radius: 3vw;
-margin-right: 2vw;
-margin-top: 2vw;
-}
 
-.clearAll {
-  border-radius: 3vw;
-  margin-left: 2vw;
-  margin-top: 2vw;
-}
+

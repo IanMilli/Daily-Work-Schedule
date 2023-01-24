@@ -189,7 +189,7 @@ Remove All (Clear Local Storage) localStorage.clear();
 /*conect the jquery function to the class saveBtn and use .each so the function runs on all elements using the class saveBtn */
 $('.saveBtn').each(function () {
         /*this - refers to the parent element in this case the buttons that have .saveBtn attached to them */
-        $(this).on("click", function () {
+        $(this).on("click", function() {
                 /* Alert the user the task has been saved - modal located in html file*/
                 $('#saveEntryModal').modal('show');
                 /*define textId to grab the id of textarea div by looking for the siblings of the current button of which one is the text area and then add its attribute slot Value 
@@ -198,7 +198,7 @@ $('.saveBtn').each(function () {
                 /*grab the value of Text from the class textarea by looking at the value of textArea which is a sibling to the current button the function is moving through*/
                 let text = $(this).siblings('textArea').val();
                 /*save data to localStorage (remember set item saves, get item retrieves. as you are adding text only there is no need to use JSON.stringify as this will return a string when recalled from local storage*/
-                localStorage.setItem(textId,text);
+                localStorage.setItem(textId, text);
         });
 });
 
@@ -223,19 +223,19 @@ or we can use a for loop to simply the code:
 then use jquery to link to the id with the same value of i  and retrieve it from local storage*/
 for (let i = 7; i < 20; i++) {
         $(`#${i}`).val(localStorage.getItem(i));
-      };
+};
 
 /* What if the user wants to remove the data from the planner?
 create a function so the user can remove  their data from the local storage but only for the connected textarea.
 First i created a clear button for each text area using the for loop above, see line 167 onwards - 
 the element connected to the variable button2
 Similarly to the save button create a function that is connected to the clearBtn class that has been attributed to each clear button.
-use .each so this function runs on every button assigned the class .clearBtn*/      
+use .each so this function runs on every button assigned the class .clearBtn*/
 $('.clearBtn').each(function () {
         /*assign a on click event to the parent of the function - the clear button with the class .clearBtn assigned to it*/
         $(this).on("click", function () {
-              /** use removeItem to remove only the data associated with the textArea sibling of this parent the button , and the associated value of the slotvalue ID */
-                localStorage.removeItem($(this).siblings("textArea").attr("slotvalue") );
+                /** use removeItem to remove only the data associated with the textArea sibling of this parent the button , and the associated value of the slotvalue ID */
+                localStorage.removeItem($(this).siblings("textArea").attr("slotvalue"));
                 /** use the following code as a method to refresh the page automatically using javaScript  */
                 window.location.reload();
         })
