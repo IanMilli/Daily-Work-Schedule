@@ -2,6 +2,15 @@ body {
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
     line-height: 1;
+  margin: auto;
+  background-color: rgb(152, 219, 241) ;
+}
+  
+
+  .page {
+    background-image: url(../images/styling/background\ body.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
   }
   
   textarea {
@@ -15,7 +24,9 @@ body {
   
   .jumbotron {
     text-align: center;
-    background-color: transparent;
+    background-image: url(../images/styling/background\ header.jfif);
+    background-repeat: no-repeat;
+    background-size: cover;
     color: black;
     border-radius: 0;
     border-bottom: 10px solid black;
@@ -27,13 +38,19 @@ body {
   
   .time-block {
     text-align: center;
-    border-radius: 15px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    border-right: 1px solid black;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    height:4.5vw;
   }
   
   .row {
     white-space: pre-wrap;
-    height: 80px;
-    border-top: 1px solid white;
+    height: 5vw;
+    
   }
   
   .hour {
@@ -43,29 +60,43 @@ body {
   }
   
   .past {
-    background-color: #d3d3d3;
+    background-color: #69cef9;
     color: white;
   }
   
   .present {
-    background-color: #ff6961;
-    color: white;
+    background-color: #02c4ff;
+    color: black;
   }
   
   .future {
-    background-color: #77dd77;
-    color: white;
+    background-color: #7beafb;
+    color: navycx ;
   }
   
   .saveBtn {
     border-left: 1px solid black;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
-    background-color: #06aed5;
-    color: white;
+    border-radius: 15px;
+    height: 3vw;
+    margin-left: 0.5vw;
+    margin-top: 1.5vw;
+    color: rgb(249, 253, 254);
   }
   
   .saveBtn i:hover {
+    font-size: 20px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .clearBtn {border-left: 1px solid black;
+    border-radius: 15px;
+    height: 3vw;
+    margin-top: 1.5vw;
+    margin-left: 1vw;
+    color: rgb(255, 255, 255);
+  }
+
+  .clearBtn i:hover {
     font-size: 20px;
     transition: all 0.3s ease-in-out;
   }

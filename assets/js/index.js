@@ -112,7 +112,7 @@ function displayCurrentTime() {
                 /*Create a new label for each row and equal it to its container as the for loop runs */
                 let label = $("<label>");
                 /*Add a class to the label to define its size using bootstrap */
-                label.addClass("col-2 col-sm-1 time-block hour");
+                label.addClass("col-2 col-sm-1 time-block hour text-center bg-warning");
                 /* attach the  text slotValue the mini array row Name to the label dependant on slotValue of the timeSlot array in comparison to the slotValue of i*/
                 label.text(timeSlot[i].rowName);
                 /* append the slotValue of the variable label to each variable row*/
@@ -156,7 +156,7 @@ function displayCurrentTime() {
                 /* create a variable button and equal it to a button div to create a button at the end of each row */
                 let button = $("<button>");
                 /* attach classes to the variable button to give size and css styling - use .attr rather than .addClass as some of the classes are viewed by jquery as attributes*/
-                button.attr("class", "col-2 col-sm-1 saveBtn fas fa-save");
+                button.attr("class", "col-2 col-sm-1 saveBtn fas fa-save bg-primary");
                 /* add an id to the button variable of btn plus the current slotValue of i as the loop operates (id is an attribute so use .attr to add it) */
                 button.attr("id", "btn" + i);
                 /*append the slotValue of the variable to row */
