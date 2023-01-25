@@ -32,12 +32,12 @@ Should they complete the task and wish to clear the data they have entered the u
 
 
 ## Screenshots
-![initial screen](assets\images\screenshots\initial screen.png).
-![data entered](assets\images\screenshots\data entered.png).
-![save button clicked](assets\images\screenshots\save button clicked - data enterd into the local storage.png).
-![screen refreshed - data is retained](assets\images\screenshots\after refresh data is retained.png).
-![some data cleared](assets\images\screenshots\data has been cleared on some items.png).
-![work scedule cleared completely](assets\images\screenshots\work schedule cleared completely.png).
+[initial screen](https://github.com/IanMilli/week-7-Work-Place-Calender-and-Scheduler/blob/main/assets/images/screenshots/initial%20screen.png).
+[data entered](https://github.com/IanMilli/week-7-Work-Place-Calender-and-Scheduler/blob/main/assets/images/screenshots/data%20entered.png).
+[save button clicked](https://github.com/IanMilli/week-7-Work-Place-Calender-and-Scheduler/blob/main/assets/images/screenshots/save%20button%20clicked%20-%20data%20enterd%20into%20the%20local%20storage.png).
+[screen refreshed - data is retained](https://github.com/IanMilli/week-7-Work-Place-Calender-and-Scheduler/blob/main/assets/images/screenshots/after%20refresh%20data%20is%20retained.png).
+[some data cleared](https://github.com/IanMilli/week-7-Work-Place-Calender-and-Scheduler/blob/main/assets/images/screenshots/data%20has%20been%20cleared%20on%20some%20items.png).
+[work scedule cleared completely](https://github.com/IanMilli/week-7-Work-Place-Calender-and-Scheduler/blob/main/assets/images/screenshots/work%20schedule%20cleared%20completely.png).
 
 ```
 
