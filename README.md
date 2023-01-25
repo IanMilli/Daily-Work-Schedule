@@ -32,7 +32,13 @@ Should they complete the task and wish to clear the data they have entered the u
 
 
 ## Screenshots
-![alt text](assets/images/screenshot.png)
+![initial screen](assets\images\screenshots\initial screen.png).
+![data entered](assets\images\screenshots\data entered.png).
+![save button clicked](assets\images\screenshots\save button clicked - data enterd into the local storage.png).
+![screen refreshed - data is retained](assets\images\screenshots\after refresh data is retained.png).
+![some data cleared](assets\images\screenshots\data has been cleared on some items.png).
+![work scedule cleared completely](assets\images\screenshots\work schedule cleared completely.png).
+
 ```
 
 

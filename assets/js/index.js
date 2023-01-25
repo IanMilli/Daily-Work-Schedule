@@ -221,7 +221,7 @@ or we can use a for loop to simply the code:
 */
 /*create a for loop that iterates when i is less than 7 having given it a initial value of 7
 then use jquery to link to the id with the same value of i  and retrieve it from local storage*/
-for (let i = 7; i < 20; i++) {
+for (let i = 7; i < 21; i++) {
         $(`#${i}`).val(localStorage.getItem(i));
 };
 
